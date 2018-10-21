@@ -21,3 +21,7 @@ def create_new_thread(func, args=[]):
 
 def num_to_str(n):
     return str(n) if n > 9 else '0'+str(n)
+
+
+def normalize_rgb(rgb):
+    return list(map(lambda x: x/255.0, rgb))

@@ -1,16 +1,27 @@
 <MainScreen>:
-    canvas:
-        Color:
-            rgb: list(map(lambda x: float(x)/255, [90, 12, 102]))
-        Rectangle:
-            pos: self.pos
-            size: self.size
     BoxLayout:
         ClockLabel:
             id: clock_label
             text: self.get_time()
             font_size: 200
-        Label:
-            text: 'Hey'
+        Button:
+            text: 'Add user'
             size_hint_x: None
             width: 300
+            on_press:
+                root.manager.transition.direction = 'left'
+                root.manager.transition.duration = self.parent.parent.transition_duration
+                root.manager.current = 'new_user_screen'
+
+<NewUserScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        Label:
+            text: 'User name:'
+        TextInput:
+        Button:
+            text: 'OK'
+            on_press:
+                root.manager.transition.direction = 'right'
+                root.manager.transition.duration = self.parent.parent.transition_duration
+                root.manager.current = 'main_screen'

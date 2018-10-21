@@ -1,7 +1,11 @@
 from kivy.uix.label import Label
 from kivy.uix.screenmanager import ScreenManager, Screen
 from clock import Clock as ClockMechanics
-from utils import num_to_str
+from utils import num_to_str, normalize_rgb
+
+
+class BaseScreen(Screen):
+    transition_duration = 0.5
 
 
 class ClockLabel(Label, ClockMechanics):
@@ -15,22 +19,23 @@ class ClockLabel(Label, ClockMechanics):
         self.text = self.get_time()
 
 
-class MainScreen(Screen):
+class MainScreen(BaseScreen):
     pass
 
 
-class NewUserScreen(Screen):
+class NewUserScreen(BaseScreen):
     pass
 
 
-class EditUserScreen(Screen):
+class EditUserScreen(BaseScreen):
     pass
 
 
-class EditAlarmScreen(Screen):
+class EditAlarmScreen(BaseScreen):
     pass
 
 
-class AlarmScreen(Screen):
+class AlarmScreen(BaseScreen):
+    rgb = [255, 255, 255]
     pass
 
