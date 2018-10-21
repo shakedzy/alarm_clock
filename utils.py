@@ -17,3 +17,7 @@ def create_new_thread(func, args=[]):
     thread.daemon = True
     thread.start()
     return thread
+
+
+def num_to_str(n):
+    return str(n) if n > 9 else '0'+str(n)
